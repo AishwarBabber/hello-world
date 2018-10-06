@@ -1,297 +1,229 @@
-	#include<iostream>
-	#include <ostream>
-	#include <iomanip>
-	using namespace std;
-	
-	int f=0;
-	
-	class a
-	
-	{
-			
-	 //int timeSlot[5]={9,12,3,6,9}, movie[5]={1,2,3,4,5};
-	 
-	public:
+		#include<iostream>
+		#include <ostream>
+		#include <iomanip>
 		
-		int seat=100,t,p[100]={0},k=0,yo=0, cost=0,s=1;
-	 
-	  
-	  void show_details();
-	
-	  void bookticket();
-	
-	  void show();
-	
-	  void inScreen();
-	
-	  void calCost(int i);
-	  
-	  void seatsAvailable();
-	  
-	  //void seatDisplay(int m);
-	  
-	  void showTime();
-	  
-	  void seatsAvailable(int i);
-	  
-	  void seatDisplay();
-	  
-	  /*a(int seatnum)
-	  {
-	  	//cout<<"Enter seat number"
-	  	
-		m=seatnum;
-	  }*/
-	  
-	
-		  
-
-	
-	} movie[5];
-	
-	 void a::seatDisplay()
-{	int choice;
-	 s=1;
-	
-	for(int i=0;i<10;i++)
-	{
+		using namespace std;
 		
-		for(int j=0;j<=9;j++)
+		static int f=0;
+		
+		class a
 		{
-			yo=0;
-
-			if( j==2 || j==8) 
-			
-				cout<<"\t";
-						
-			for(int x=0;x<k;x++)
-		   	{
-				if(movie[f].p[x]==(s+yo)) 
-				{
-
-				cout<<"--  ";
-				if(j==7 || j==1)
-				cout<<"\t";
-				yo++;
-				j++;
-				} 
-				
-			} 
-
-												
-				if(s<10)
-				cout<<setw(2)<<setfill('0');
-				s=s+yo;
-				if(j==10) 
-				
-				continue;
-				else
-				cout<<s<<"  " ;			 
-				s++;
-	}
+			public:
+					
+			int seat=100,t,k=0,yo=0,p[100]={0}, cost=0,s=1,test=1;
 		 
-	    if(i==2|| i==7 )
-			cout<<"\n";
+		  		
+		  void bookticket();		
 		
-		cout<<endl;
-	}
+		  void inScreen();
+		
+		  void calCost(int i);
+		  		  		  
+		  void seatDisplay();
+		
+		} movie[5];
+		
+		
+		// @seatDisplay function displays the seat arrangement 
+		
+		 void a::seatDisplay()
+		{
+		
+		// @choice variable accepts users choice to exit or to return to main menue
+		int choice;
+		 
+	    // @s variable counts the numbers of seats and displays the seat parttern from 1 to 100 	 
+		s=1;
+		
+		for(int i=0;i<10;i++)
+		{
+			cout<<"\t\t";
+			for(int j=0;j<=9;j++)
+			{
+				
+				yo=0;
 	
-	cout<<"\n----------------SCREEN THIS SIDE------------------"<<endl;
+				if( j==2 || j==8) 
+				
+					cout<<"\t";
+									
+				for(int x=0;x<=movie[f].k;x++)
+			   	{
 
- 	while(1)
-		{
-		cout<<"\nEnter the seat number to book your ticket"
-		<<"\nor \nEnter 0 to confirm\n";
-		cin>>t;
-		cout<<endl<<endl;
+					if(movie[f].p[x]==(s+yo))   
+					{
+					cout<<"--  ";
+					if(j==7 || j==1)
+					cout<<"\t";
+					yo++;
+					j++;
+					} 
+				}
+										
+					if(s<10)
+					cout<<setw(2)<<setfill('0');
+					
+					s=s+yo;
+					if(j==10) 
+					
+					continue;
+					else
+					cout<<s<<"  " ;			 
+					s++;
+					
+		}
 		
-		if(t==0) 
-		{
-		calCost(k);
-		k=0;
-		cout<<"1. Go Back To Main Menue"
-		<<endl<<"2.Exit\n";
-		cin>>choice;
-		cout<<endl<<endl;
-		if(choice==2)
-		exit(0);
-		else 
-		inScreen();
 	
+		    if(i==2|| i==7 )
+				cout<<"\n";
+				
+			
+			cout<<endl;
 		}
 		
-		else {
-		
-		movie[].p
-		
-		[k++]=t;
-		seatDisplay();  }
-
-		}
-	}
+		cout<<"\n\t\t----------------SCREEN THIS SIDE------------------"<<endl;
+		cout<<"\n\t\tSeat Price:"<<endl<<"\t\t\tPlatinum (1-30) = Rs. 300"<<endl<<"\t\t\tGold    (31-80) = Rs. 200"<<endl<<"\t\t\tSilver (81-100) = Rs. 150"<<endl;
 	
-	void a:: calCost(int i)
-	{
-		int c=0;
-		for(int i=0;i<100;i++)
-		{
-			if(p[i]<=30 && p[i]>=1) {
-			c++;
-			cost= cost+((c)*300);
-			c=0;
-		}
-			else if(p[i]>=31 && p[i]<=80){
-			c++;
-			cost = cost + ((c)*200);
-			c=0;
+	 	while(1)
+			{
+			cout<<"\n\t\tEnter the seat number to book your ticket"
+			<<"\n\t\tor \n\t\tEnter 0 to confirm\n";
+			cin>>t;
+			cout<<endl<<endl;
+			
+	
+			if(t==0) 
+			{
+				calCost(k);
+				
+				cout<<"\t\t1. Go Back To Main Menu"
+				<<endl<<"\t\t2.Exit\n";
+				cin>>choice;
+				cout<<endl<<endl;
+				if(choice==2)
+		
+				exit(0);
+			    
+				else 
+				inScreen();
 			}
 			
-			else if(p[i]>=81 && p[i]<=100)
-			{ c++;
-			  cost = cost + ((c)*150);
-			  c=0;
+			else 
+			{
+			
+			   if(movie[f].p[t-1]==t) {
+			   			
+			  cout<<"\t\tSeat is already booked\n";
+			   } 
+			  
+			  else {
+
+			  movie[f].p[movie[f].k++]=t;  
+			  test++;
+			   movie[f].seatDisplay();   }
 			}
-//			else {
-//			cout<<"Seat No. Not Valid\n\n";
-//			}
 		}
-			cout<<"\n Total Price = "<<cost<<endl<<endl;
-			cost=0;
+		  	
+			  }
+		
+		void a:: calCost(int i)
+		{
+			int c=0;
+			for(int i=0;i<100;i++)
+			{
+				if(movie[f].p[i]<=30 && movie[f].p[i]>=1) {
+				c++;
+				cost= cost+((c)*300);
+				c=0;
+			}
+				else if(movie[f].p[i]>=31 && movie[f].p[i]<=80){
+				c++;
+				cost = cost + ((c)*200);
+				c=0;
+				}
+				
+				else if(movie[f].p[i]>=81 && movie[f].p[i]<=100)
+				{ c++;
+				  cost = cost + ((c)*150);
+				  c=0;
+				}
+	//			else {
+	//			cout<<"Seat No. Not Valid\n\n";
+	//			}
+			}
+				cout<<"\n Total Price = "<<cost<<endl<<endl;
+				cost=0;
+			}
+	
+		
+
+		void a::bookticket()
+		{
+			int m;
+			top:
+			cout<<"\n\n\t\t\t1.Movie 1\n\t\t\t"
+		
+		  <<"2.Movie 2\n\t\t\t"
+		
+		  <<"3.Movie 3\n\t\t\t"
+		  
+		  <<"4.Movie 4\n\t\t\t"
+		  
+		  <<"5.Movie 5\n\t\t\t";
+		
+		  cout<<"\n\t\t\tEnter movie choice or Enter 0 to go back to main menue :-> ";
+		
+		  cin>>m;
+		  cout<<endl<<endl;
+		  
+		  f=m;
+		  
+		 if(m==0)
+			inScreen();
+			else if( m>=1 && m<=5 )
+			movie[f].seatDisplay();
+			else 
+			cout<<"Invalid Choice";
+			goto top;
+			
+	}
+		
+		void a::inScreen()
+		{
+				int w=0;
+						
+		  cout<<"\t\t\t1.Running Shows\n\t\t\t"
+		
+		  <<"2.Book Tickets\n\t\t\t"
+		
+		  <<"3.Exit \n\t\t\t";
+		
+		  cout<<"\n\t\t\tEnter your choice:-> ";
+		
+		  cin>>w;
+		  
+		  switch(w)
+		
+		  {
+		
+		    case 1:  bookticket();
+		
+		      break;
+		      
+		    case 2:  bookticket();
+		
+		      break;
+		
+		    case 3:  exit(0);
+		
+		  }
+		  
 		}
-	
-	
-//	void a::showTime(int m)
-//	{
-//		
-//		cout<<"\n\n\t\t\t1.Time \n\t\t\t"
-//	
-//	  <<"2.Time \n\t\t\t"
-//	
-//	  <<"3.Time \n\t\t\t"
-//	  
-//	  <<"4.Time \n\t\t\t"
-//	  
-//	  <<"5.Time \n\t\t\t";
-//	
-//	  cout<<"\n\t\t\tEnter movie time:->\t";
-//	
-//	  cin>>t;
-//	  seatsAvailable(t);
-//		
-//	}
-	
-//	void a:: seatsAvailable(int i)
-//	{
-//	//	int i;
-//		cout<<"\	Available Seat at ";
-//	//	movie[i]
-//		if(i<=2)
-//		cout<<i<<" AM\n"<<endl;
-//		else if(i>2 && i<=5)
-//		cout<<i<<" PM\n"<<endl;
-//		else 
-//		cout<<"Show not available at this time";	
-//		seatDisplay();
-//		
-//	}
-	
-	
-	
-	void a::bookticket()
-	{
-		int m;
-		cout<<"\n\n\t\t\t1.Movie 1\n\t\t\t"
-	
-	  <<"2.Movie 2\n\t\t\t"
-	
-	  <<"3.Movie 3\n\t\t\t"
-	  
-	  <<"4.Movie 4\n\t\t\t"
-	  
-	  <<"5.Movie 5\n\t\t\t";
-	
-	  cout<<"\n\t\t\tEnter movie choice:-> ";
-	
-	  cin>>m;
-	  f=m;
-	  	seatDisplay();
-	  
-	 // showTime(m);
-	  
-//	  if(c==1)
-//		inScreen();
-//		else if(c==2)
-//		showTime();
 		
-	  
-//	   seatsAvailable(m);
-	  	
-	}
-	
-	void a::inScreen()
-	{
-			int w=0;
-	
 		
-	  cout<<"\t\t\t1.Running Shows\n\t\t\t"
-	
-	  <<"2.Book Tickets\n\t\t\t"
-	
-	  <<"3.Exit \n\t\t\t";
-	
-	  cout<<"\n\t\t\tEnter your choice:-> ";
-	
-	  cin>>w;
-	  
-	  switch(w)
-	
-	  {
-	
-	    case 1:  show_details();
-	
-	      break;
-	      
-	    case 2:  bookticket();
-	
-	      break;
-	
-	    case 3:  exit(0);
-	
-	  }
-	  
-	}
-	
-	void a::show_details()
-	
-	{
-		int c;
-		cout<<"\tMovie 1\n"
-		<<"\tMovie 2\n"
-		<<"\tMovie 3\n"
-		<<"\tMovie 4\n"
-		<<"\tMovie 5\n";
-		
-		cout<<"\n\n\t1.Back\n"
-		<<"\t2.Book tickets";
-		
-		cin>>c;
-		
-		if(c==1)
-		inScreen();
-		else if(c==2)
-		bookticket();
-	
-	}
-	
-	
-	
-	int main()
-	 {
-	 	a o;
-	 	o.inScreen();
-	 
-	
-	
-	  
-	   return 0;
-	}
+		int main()
+		 {
+		 	a o;
+		 	o.inScreen();  
+		   return 0;
+		}
